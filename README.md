@@ -41,6 +41,30 @@ In above Student JSON, courses field is optional.
 }
 ```
 
+## Project Architecture
+1. MVC pattern is used to seggregate the functionality,and the view part is not being used for now.
+2. A dedicated Repository folder is used to change the datasource with minimal changes. 
+3. Outline of Core logic folder is as follows : 
+  ```
+  -- springbootcrud
+    |-- SpringBootCrudApplication.java
+    |-- controller
+    |   |-- CourseController.java
+    |   `-- StudentController.java
+    |-- model
+    |   |-- Course.java
+    |   `-- Student.java
+    |-- repository
+    |   |-- CourseRepository.java
+    |   `-- StudentRepository.java
+    `-- service
+        |-- CourseService.java
+        |-- CourseServiceImpl.java
+        |-- StudentService.java
+        `-- StudentServiceImpl.java
+
+  ```
+
 ## Entities are as follows
 - Student (id, name)
 - Course (id,name)
