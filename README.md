@@ -11,8 +11,8 @@
   create database admin_university;
 ```
 2. Clone the repo and change the application.properties file
-  - Change the <username> to your Mysql Username
-  - Change the <password> to your Mysql Password
+  - Change the \<username\> to your Mysql Username
+  - Change the \<password\> to your Mysql Password
 
 3. Go to root directory that is ~/spring-boot-crud and run the following command
 ```
