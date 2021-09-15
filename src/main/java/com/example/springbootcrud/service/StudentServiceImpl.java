@@ -1,14 +1,14 @@
 package com.example.springbootcrud.service;
 
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import com.example.springbootcrud.model.Course;
 import com.example.springbootcrud.model.Student;
 import com.example.springbootcrud.repository.CourseRepository;
 import com.example.springbootcrud.repository.StudentRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import redis.clients.jedis.Jedis;
+
+import java.util.List;
 
 @Service
 public class StudentServiceImpl implements StudentService {
@@ -30,7 +30,9 @@ public class StudentServiceImpl implements StudentService {
 	}
 	
 	@Override
-	public Student add(Student newStudent) {		
+	public Student add(Student newStudent) {
+		Jedis jedis = new Jedis("localhost");
+		jedis.rpush("all-students", newStudent.toString());
 		return studentRepository.save(newStudent);
 	}
 	
