@@ -1,20 +1,10 @@
 package com.example.springbootcrud.model;
 
-import java.util.Date;
-import java.util.Set;
-
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-import javax.persistence.Table;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import javax.persistence.*;
+import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "students")
@@ -42,7 +32,7 @@ public class Student {
     		@JoinColumn(name = "course_id") 
     		})
 	@JsonIgnoreProperties("students")
-	private Set<Course> courses;
+	private List<Course> courses;
     
     public Student() {
     	
@@ -78,11 +68,31 @@ public class Student {
 	public void setLastUpdatedAt(Date lastUpdatedAt) {
 		this.lastUpdatedAt = lastUpdatedAt;
 	}
-	public Set<Course> getCourses() {
+	public List<Course> getCourses() {
 		return courses;
 	}
-	public void setCourses(Set<Course> courses) {
+	public void setCourses(List<Course> courses) {
 		this.courses = courses;
 	}
-	
+
+	@Override
+	public String toString() {
+		return "Student{" +
+				"id=" + id +
+				", name='" + name + '\'' +
+				", createdAt=" + createdAt +
+				", lastUpdatedAt=" + lastUpdatedAt +
+				", courses=" + courses +
+				'}';
+	}
+
+	public String toJsonString() {
+		return "{" +
+				"id=" + id +
+				", name='" + name + '\'' +
+				", createdAt=" + createdAt +
+				", lastUpdatedAt=" + lastUpdatedAt +
+				", courses=" + courses +
+				'}';
+	}
 }

@@ -15,8 +15,11 @@ public class StudentController {
 	private StudentService studentService;
 	
 	@GetMapping("/students")
-	public List<Student> viewHomePage() {
-		return studentService.getAllStudents();
+	public List<Object> viewHomePage() {
+
+		List<Object> students = studentService.getAllStudents();
+
+		return students;
 	}
 	
 	@PostMapping("/student")

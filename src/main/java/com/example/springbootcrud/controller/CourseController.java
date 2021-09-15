@@ -22,7 +22,7 @@ public class CourseController {
 	private CourseService courseService;
 	
 	@GetMapping("/courses")
-	public List<Course> index() {
+	public List<Object> index() {
 		return courseService.getAllCourses();
 	}
 	

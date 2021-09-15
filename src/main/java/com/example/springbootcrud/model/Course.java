@@ -1,15 +1,9 @@
 package com.example.springbootcrud.model;
 
-import java.util.List;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.Table;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import javax.persistence.*;
+import java.util.List;
 
 /**
  * Tag domain model
@@ -56,7 +50,21 @@ public class Course {
 	public void setStudents(List<Student> students) {
 	   this.students = students;
 	}
-	 
-	  
-	
+
+	@Override
+	public String toString() {
+		return "Course{" +
+				"id=" + id +
+				", name='" + name + '\'' +
+				", students=" + students +
+				'}';
+	}
+
+	public String toJsonString() {
+		return "{" +
+				"id=" + id +
+				", name='" + name + '\'' +
+				", students=" + students +
+				'}';
+	}
 }

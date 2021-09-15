@@ -1,12 +1,12 @@
 package com.example.springbootcrud.service;
 
-import java.util.*;
-
 import com.example.springbootcrud.model.Course;
 import com.example.springbootcrud.model.Student;
 
+import java.util.List;
+
 public interface StudentService {
-	List<Student> getAllStudents();
+	List<Object> getAllStudents();
 	
 	Student add(Student student);
 	

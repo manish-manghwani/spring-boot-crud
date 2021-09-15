@@ -24,8 +24,6 @@ public class JWTUserDetailsService implements UserDetailsService {
 
         com.example.springbootcrud.model.User user = UserRepo.findByName(username);
 
-        logger.info("Validating user : "+ user.toString());
-
         if (user == null) {
             throw new UsernameNotFoundException("User not found with username: " + username);
         }
